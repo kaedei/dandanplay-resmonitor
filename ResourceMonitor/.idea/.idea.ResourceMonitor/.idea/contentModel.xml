@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeFlat">
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="ResourceMonitor" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="WeatherForecastController.cs" t="Include" />
+        </e>
+        <e p="log" t="Include">
+          <e p="20200621.txt" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="DandanplayApi" t="Include">
+            <e p="AutoDownloadRule.cs" t="Include" />
+            <e p="AutoDownloadRuleListResponse.cs" t="Include" />
+            <e p="AutoDownloadRuleSyncRequest.cs" t="Include" />
+            <e p="LoginRequest.cs" t="Include" />
+            <e p="LoginResponse.cs" t="Include" />
+            <e p="ResponseBase.cs" t="Include" />
+          </e>
+          <e p="WeatherForecast.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="RefitStubs.g.cs" t="Include" />
+              <e p="ResourceMonitor.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+        <e p="ResourceMonitor.csproj" t="IncludeRecursive" />
+        <e p="Services" t="Include">
+          <e p="IDandanplayApi.cs" t="Include" />
+          <e p="SyncRulesHostedService.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="wwwroot" t="Include">
+          <e p="index.html" t="Include" />
+        </e>
+      </e>
+      <e p="ResourceMonitor.sln" t="IncludeFlat" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/extResources" t="IncludeRecursive" />
+    <e p="$USER_HOME$/Library/Caches/Rider2019.3/resharper-host/local/Transient/ReSharperHost/v193/SolutionCaches/_ResourceMonitor.-104428438.00" t="ExcludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/consoles/db" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/extensions" t="IncludeRecursive" />
+    <e p="$APPLICATION_CONFIG_DIR$/scratches" t="IncludeRecursive" />
+  </component>
+</project>
