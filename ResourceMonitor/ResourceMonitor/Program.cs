@@ -28,13 +28,13 @@ namespace ResourceMonitor
 
             try
             {
-                Log.Information("Starting resource monitor");
+                Log.Information("启动 ResMonitor...");
                 CreateHostBuilder(args).Build().Run();
                 return 0;
             }
             catch (Exception ex)
             {
-                Log.Fatal(ex, "Host terminated unexpectedly");
+                Log.Fatal(ex, "ResMonitor 因意外情况终止");
                 return 1;
             }
             finally

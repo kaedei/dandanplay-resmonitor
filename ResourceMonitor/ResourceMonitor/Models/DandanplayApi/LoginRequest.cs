@@ -7,5 +7,6 @@ namespace ResourceMonitor.Models.DandanplayApi
         public string appId { get; set; }
         public long unixTimestamp { get; set; }
         public string hash { get; set; }
+
     }
 }

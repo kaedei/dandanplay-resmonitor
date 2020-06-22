@@ -2,6 +2,9 @@
 
     <PropertyGroup>
         <TargetFramework>netcoreapp3.1</TargetFramework>
+        <Authors>kaedei</Authors>
+        <Copyright>Copyright kaedei 2020</Copyright>
+        <PackageProjectUrl>https://github.com/kaedei/dandanplay-resmonitor</PackageProjectUrl>
     </PropertyGroup>
 
     <ItemGroup>

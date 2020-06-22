@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -13,6 +14,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Refit;
 using ResourceMonitor.Services;
+using ResourceMonitor.Services.Declaration;
+using ResourceMonitor.Services.Implementation;
 
 namespace ResourceMonitor
 {
@@ -28,14 +31,20 @@ namespace ResourceMonitor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddHostedService<SyncRulesHostedService>();
+            services.AddHostedService<SyncRulesBackgroundService>();
+            services.AddHostedService<CheckNewResourcesBackgroundService>();
 
             services.AddRefitClient<IDandanplayApi>()
                 .ConfigureHttpClient(c =>
                 {
-                    c.DefaultRequestHeaders.UserAgent.Add(new ProductInfoHeaderValue("dandanplay/resmonitor 1.0.0.0"));
-                    c.BaseAddress = new Uri("https://api.acplay.net");
+                    //User-Agent: dandanplay/resmonitor 1.2.3.4
+                    c.DefaultRequestHeaders.UserAgent.ParseAdd(
+                        string.Format(Configuration["Api:UserAgent"],
+                            Assembly.GetExecutingAssembly().GetName().Version.ToString(4)));
+                    c.BaseAddress = new Uri(Configuration["Api:ApiBaseUrl"]);
                 });
+
+            services.AddSingleton<IRulesContainer, RulesContainer>();
             
             services.AddControllers();
         }

@@ -40,5 +40,10 @@ namespace ResourceMonitor.Models.DandanplayApi
         public bool chooseNewerIfDuplicate { get; set; }
         public int limitFileSize { get; set; }
         public int version { get; set; }
+
+        public override string ToString()
+        {
+            return $"{nameof(id)}: {id}, {nameof(description)}: {description}, {nameof(keyword)}: {keyword}, {nameof(subgroupId)}: {subgroupId}, {nameof(typeId)}: {typeId}, {nameof(maxCount)}: {maxCount}, {nameof(autoStart)}: {autoStart}, {nameof(createdTime)}: {createdTime}, {nameof(subgroupName)}: {subgroupName}, {nameof(typeName)}: {typeName}, {nameof(chooseNewerIfDuplicate)}: {chooseNewerIfDuplicate}, {nameof(limitFileSize)}: {limitFileSize}, {nameof(version)}: {version}";
+        }
     }
 }

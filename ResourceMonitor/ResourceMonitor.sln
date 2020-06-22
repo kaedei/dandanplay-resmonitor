@@ -2,6 +2,8 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceMonitor", "ResourceMonitor\ResourceMonitor.csproj", "{6803E3E6-61BA-4DB0-BD0C-1A810D493E9C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ResourceMonitor.Test", "ResourceMonitor.Test\ResourceMonitor.Test.csproj", "{6C8A0394-AA65-4E45-8E11-16067A94EE99}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +14,9 @@ Global
 		{6803E3E6-61BA-4DB0-BD0C-1A810D493E9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6803E3E6-61BA-4DB0-BD0C-1A810D493E9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6803E3E6-61BA-4DB0-BD0C-1A810D493E9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C8A0394-AA65-4E45-8E11-16067A94EE99}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C8A0394-AA65-4E45-8E11-16067A94EE99}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C8A0394-AA65-4E45-8E11-16067A94EE99}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C8A0394-AA65-4E45-8E11-16067A94EE99}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
