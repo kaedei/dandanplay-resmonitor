@@ -47,6 +47,7 @@
         <e p="Services" t="Include">
           <e p="Declaration" t="Include">
             <e p="IDandanplayApi.cs" t="Include" />
+            <e p="IResApi.cs" t="Include" />
             <e p="IRulesContainer.cs" t="Include" />
           </e>
           <e p="Implementation" t="Include">

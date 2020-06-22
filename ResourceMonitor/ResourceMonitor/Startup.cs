@@ -34,14 +34,22 @@ namespace ResourceMonitor
             services.AddHostedService<SyncRulesBackgroundService>();
             services.AddHostedService<CheckNewResourcesBackgroundService>();
 
+            //User-Agent: dandanplay/resmonitor 1.2.3.4
+            var userAgent = string.Format(Configuration["Api:UserAgent"],
+                Assembly.GetExecutingAssembly().GetName().Version.ToString(4));
+            
             services.AddRefitClient<IDandanplayApi>()
                 .ConfigureHttpClient(c =>
                 {
-                    //User-Agent: dandanplay/resmonitor 1.2.3.4
-                    c.DefaultRequestHeaders.UserAgent.ParseAdd(
-                        string.Format(Configuration["Api:UserAgent"],
-                            Assembly.GetExecutingAssembly().GetName().Version.ToString(4)));
+                    c.DefaultRequestHeaders.UserAgent.ParseAdd(userAgent);
                     c.BaseAddress = new Uri(Configuration["Api:ApiBaseUrl"]);
+                });
+
+            services.AddRefitClient<IResApi>()
+                .ConfigureHttpClient(c =>
+                {
+                    c.DefaultRequestHeaders.UserAgent.ParseAdd(userAgent);
+                    c.BaseAddress = new Uri(Configuration["Api:ResBaseUrl"]);
                 });
 
             services.AddSingleton<IRulesContainer, RulesContainer>();
@@ -59,7 +67,7 @@ namespace ResourceMonitor
 
             app.UseStaticFiles();
             
-            app.UseHttpsRedirection();
+            //app.UseHttpsRedirection();
 
             app.UseRouting();
 

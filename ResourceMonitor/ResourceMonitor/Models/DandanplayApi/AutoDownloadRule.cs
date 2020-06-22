@@ -23,7 +23,7 @@ namespace ResourceMonitor.Models.DandanplayApi
      */
     
     /// <summary>
-    /// 下载规则详情（部分属性没有用到就没加进来）
+    /// 下载规则详情
     /// </summary>
     public class AutoDownloadRule
     {
@@ -35,6 +35,7 @@ namespace ResourceMonitor.Models.DandanplayApi
         public int maxCount { get; set; }
         public bool autoStart { get; set; }
         public DateTime createdTime { get; set; }
+        public DateTime startTime { get; set; }
         public string subgroupName { get; set; }
         public string typeName { get; set; }
         public bool chooseNewerIfDuplicate { get; set; }
@@ -43,7 +44,7 @@ namespace ResourceMonitor.Models.DandanplayApi
 
         public override string ToString()
         {
-            return $"{nameof(id)}: {id}, {nameof(description)}: {description}, {nameof(keyword)}: {keyword}, {nameof(subgroupId)}: {subgroupId}, {nameof(typeId)}: {typeId}, {nameof(maxCount)}: {maxCount}, {nameof(autoStart)}: {autoStart}, {nameof(createdTime)}: {createdTime}, {nameof(subgroupName)}: {subgroupName}, {nameof(typeName)}: {typeName}, {nameof(chooseNewerIfDuplicate)}: {chooseNewerIfDuplicate}, {nameof(limitFileSize)}: {limitFileSize}, {nameof(version)}: {version}";
+            return $"{nameof(id)}: {id}, {nameof(description)}: {description}, {nameof(keyword)}: {keyword}, {nameof(subgroupId)}: {subgroupId}, {nameof(typeId)}: {typeId}, {nameof(maxCount)}: {maxCount}, {nameof(autoStart)}: {autoStart}, {nameof(createdTime)}: {createdTime}, {nameof(startTime)}: {startTime}, {nameof(subgroupName)}: {subgroupName}, {nameof(typeName)}: {typeName}, {nameof(chooseNewerIfDuplicate)}: {chooseNewerIfDuplicate}, {nameof(limitFileSize)}: {limitFileSize}, {nameof(version)}: {version}";
         }
     }
 }
