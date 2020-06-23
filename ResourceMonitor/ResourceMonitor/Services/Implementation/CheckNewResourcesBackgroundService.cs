@@ -42,7 +42,7 @@ namespace ResourceMonitor.Services.Implementation
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation($"{nameof(CheckNewResourcesBackgroundService)} 开始在后台运行");
+            _logger.LogInformation($"[检查新资源] 开始在后台运行");
 
             while (!stoppingToken.IsCancellationRequested)
             {
@@ -66,6 +66,8 @@ namespace ResourceMonitor.Services.Implementation
                 _logger.LogInformation("全部规则解析完毕，等待 15 分钟后再次执行");
                 await Task.Delay(TimeSpan.FromMinutes(15), stoppingToken);
             }
+            
+            _logger.LogInformation("[检查新资源] 结束运行");
         }
 
         private async Task DownloadRule(AutoDownloadRule rule)
@@ -98,6 +100,12 @@ namespace ResourceMonitor.Services.Implementation
 	            //解析磁力链至种子文件
 	            var torrentBytes = await _torrentService.DownloadTorrent(magnet);
 
+	            if (!_torrentService.IsTorrentFileValid(torrentBytes))
+	            {
+		            _logger.LogWarning($"解析磁力链得到的种子文件无效 {magnet}");
+		            continue;
+	            }
+	            
 	            if (torrentBytes == null || torrentBytes.Length <= 0)
 	            {
 		            _logger.LogWarning($"解析磁力链失败 {magnet}");
@@ -112,7 +120,7 @@ namespace ResourceMonitor.Services.Implementation
         /// <summary>
         /// 根据规则过滤资源列表
         /// </summary>
-        public ResourceInfo[] FilterResources(IEnumerable<ResourceInfo> resources, bool chooseNewerIfDuplicate,
+        private ResourceInfo[] FilterResources(IEnumerable<ResourceInfo> resources, bool chooseNewerIfDuplicate,
 			int limitFileSize, bool logDetails = false)
 		{
 			if (resources == null) return new ResourceInfo[0];

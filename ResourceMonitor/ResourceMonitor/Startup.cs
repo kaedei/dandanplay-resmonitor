@@ -52,9 +52,17 @@ namespace ResourceMonitor
                     c.BaseAddress = new Uri(Configuration["Api:ResBaseUrl"]);
                 });
 
+            services.AddRefitClient<IMagnetApi>()
+                .ConfigureHttpClient(c =>
+                {
+                    c.DefaultRequestHeaders.UserAgent.ParseAdd(userAgent);
+                    c.BaseAddress = new Uri(Configuration["Api:MagnetBaseUrl"]);
+                });
+
             services.AddSingleton<IRulesContainer, RulesContainer>();
-            
-            services.AddControllers();
+            services.AddTransient<ITorrentService, TorrentService>();
+
+            services.AddControllers().AddNewtonsoftJson();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

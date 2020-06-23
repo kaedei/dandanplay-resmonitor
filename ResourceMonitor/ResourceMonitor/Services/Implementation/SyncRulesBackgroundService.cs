@@ -38,7 +38,7 @@ namespace ResourceMonitor.Services.Implementation
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
-            _logger.LogInformation("规则同步 开始运行.");
+            _logger.LogInformation("[规则同步] 开始运行.");
 
             while (!stoppingToken.IsCancellationRequested)
             {
@@ -46,18 +46,18 @@ namespace ResourceMonitor.Services.Implementation
                 bool success = await DoWork();
                 _rulesContainer.IsUpdating = false;
                 //每十分钟运行一次
-                _logger.LogInformation($"规则同步 在后台运行完成，等待 10 分钟后重新执行。此次运行结果为：{success}");
+                _logger.LogInformation($"[规则同步] 在后台运行完成，等待 10 分钟后重新执行。此次运行结果为：{success}");
                 await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
             }
 
-            _logger.LogInformation("因触发取消，规则同步 终止运行.");
+            _logger.LogInformation("因触发取消，[规则同步] 终止运行.");
         }
 
         private async Task<bool> DoWork()
         {
             //增加计数器
             var count = Interlocked.Increment(ref _executionCount);
-            _logger.LogInformation($"规则同步 在后台第 {count} 次运行");
+            _logger.LogInformation($"[规则同步] 在后台第 {count} 次运行");
 
            //之前登录过，先尝试直接刷新 jwt token
             if (_lastLoginResponse != null && _lastLoginResponse.tokenExpireTime >= DateTime.UtcNow)
