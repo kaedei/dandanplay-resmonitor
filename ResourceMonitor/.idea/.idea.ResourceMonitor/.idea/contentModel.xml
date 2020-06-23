@@ -29,6 +29,17 @@
             <e p="LoginResponse.cs" t="Include" />
             <e p="ResponseBase.cs" t="Include" />
           </e>
+          <e p="Downloader" t="Include">
+            <e p="DownloaderTask.cs" t="Include" />
+          </e>
+          <e p="ResApi" t="Include">
+            <e p="ResourceInfo.cs" t="Include" />
+            <e p="ResourceList.cs" t="Include" />
+            <e p="SubgroupInfo.cs" t="Include" />
+            <e p="SubgroupList.cs" t="Include" />
+            <e p="TypeInfo.cs" t="Include" />
+            <e p="TypeList.cs" t="Include" />
+          </e>
           <e p="WeatherForecast.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
@@ -47,8 +58,10 @@
         <e p="Services" t="Include">
           <e p="Declaration" t="Include">
             <e p="IDandanplayApi.cs" t="Include" />
+            <e p="IDownloader.cs" t="Include" />
             <e p="IResApi.cs" t="Include" />
             <e p="IRulesContainer.cs" t="Include" />
+            <e p="ITorrentService.cs" t="Include" />
           </e>
           <e p="Implementation" t="Include">
             <e p="CheckNewResourcesBackgroundService.cs" t="Include" />

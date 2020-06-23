@@ -30,12 +30,12 @@ namespace ResourceMonitor.Models.DandanplayApi
         public string id { get; set; }
         public string description { get; set; }
         public string keyword { get; set; }
-        public int subgroupId { get; set; }
-        public int typeId { get; set; }
+        public int? subgroupId { get; set; }
+        public int? typeId { get; set; }
         public int maxCount { get; set; }
         public bool autoStart { get; set; }
         public DateTime createdTime { get; set; }
-        public DateTime startTime { get; set; }
+        public DateTime? startTime { get; set; }
         public string subgroupName { get; set; }
         public string typeName { get; set; }
         public bool chooseNewerIfDuplicate { get; set; }
