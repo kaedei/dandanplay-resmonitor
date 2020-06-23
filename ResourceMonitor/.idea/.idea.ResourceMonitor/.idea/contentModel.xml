@@ -65,6 +65,19 @@
             <e p="ITorrentService.cs" t="Include" />
           </e>
           <e p="Implementation" t="Include">
+            <e p="Aria2" t="Include">
+              <e p="AriaFile.cs" t="Include" />
+              <e p="AriaGlobalStatus.cs" t="Include" />
+              <e p="AriaManager.cs" t="Include" />
+              <e p="AriaOption.cs" t="Include" />
+              <e p="AriaServer.cs" t="Include" />
+              <e p="AriaSession.cs" t="Include" />
+              <e p="AriaStatus.cs" t="Include" />
+              <e p="AriaTorrent.cs" t="Include" />
+              <e p="AriaUri.cs" t="Include" />
+              <e p="AriaVersionInfo.cs" t="Include" />
+            </e>
+            <e p="Aria2Downloader.cs" t="Include" />
             <e p="CheckNewResourcesBackgroundService.cs" t="Include" />
             <e p="RulesContainer.cs" t="Include" />
             <e p="SyncRulesBackgroundService.cs" t="Include" />
@@ -78,6 +91,7 @@
       </e>
       <e p="ResourceMonitor.sln" t="IncludeFlat" />
       <e p="ResourceMonitor.Test" t="IncludeRecursive">
+        <e p="Aria2DownloaderTests.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">

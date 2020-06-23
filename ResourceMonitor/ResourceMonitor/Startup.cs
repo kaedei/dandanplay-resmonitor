@@ -37,7 +37,7 @@ namespace ResourceMonitor
             //User-Agent: dandanplay/resmonitor 1.2.3.4
             var userAgent = string.Format(Configuration["Api:UserAgent"],
                 Assembly.GetExecutingAssembly().GetName().Version.ToString(4));
-            
+
             services.AddRefitClient<IDandanplayApi>()
                 .ConfigureHttpClient(c =>
                 {
@@ -62,6 +62,15 @@ namespace ResourceMonitor
             services.AddSingleton<IRulesContainer, RulesContainer>();
             services.AddTransient<ITorrentService, TorrentService>();
 
+            if (Configuration["Downloader"] == "aria2")
+            {
+                services.AddHttpClient<IDownloader, Aria2Downloader>();
+                services.AddSingleton<IDownloader, Aria2Downloader>();
+            }
+            else if (Configuration["Downloader"] == "transmission")
+            {
+            }
+
             services.AddControllers().AddNewtonsoftJson();
         }
 
@@ -74,7 +83,7 @@ namespace ResourceMonitor
             }
 
             app.UseStaticFiles();
-            
+
             //app.UseHttpsRedirection();
 
             app.UseRouting();

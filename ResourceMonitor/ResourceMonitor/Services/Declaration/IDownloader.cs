@@ -12,6 +12,6 @@ namespace ResourceMonitor.Services.Declaration
 
         Task<bool> IfTaskExists(string id, string url);
 
-        Task<DownloaderTask> AddNewTorrentTask(byte[] torrentBytes);
+        Task AddNewTorrentTask(byte[] torrentBytes);
     }
 }
