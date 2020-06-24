@@ -14,6 +14,7 @@
       <PackageReference Include="Refit.HttpClientFactory" Version="5.1.67" />
       <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
       <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+      <PackageReference Include="Transmission.API.RPC" Version="2.1.2" />
     </ItemGroup>
 
 

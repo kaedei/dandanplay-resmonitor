@@ -32,12 +32,14 @@ namespace ResourceMonitor
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpClient();
-            if (Configuration["Downloader"] == "aria2")
+            switch (Configuration["Downloader"]?.ToLowerInvariant())
             {
-                services.AddSingleton<IDownloader, Aria2Downloader>();
-            }
-            else if (Configuration["Downloader"] == "transmission")
-            {
+                case "aria2":
+                    services.AddSingleton<IDownloader, Aria2Downloader>();
+                    break;
+                case "transmission":
+                    services.AddSingleton<IDownloader, TransmissionDownloader>();
+                    break;
             }
             
             services.AddHostedService<SyncRulesBackgroundService>();

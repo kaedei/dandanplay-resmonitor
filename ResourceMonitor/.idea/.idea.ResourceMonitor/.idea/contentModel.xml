@@ -83,6 +83,7 @@
             <e p="RulesContainer.cs" t="Include" />
             <e p="SyncRulesBackgroundService.cs" t="Include" />
             <e p="TorrentService.cs" t="Include" />
+            <e p="TransmissionDownloader.cs" t="Include" />
           </e>
         </e>
         <e p="Startup.cs" t="Include" />
@@ -105,6 +106,7 @@
         <e p="ResourceMonitor.Test.csproj" t="IncludeRecursive" />
         <e p="RulesContainerTests.cs" t="Include" />
         <e p="TorrentServiceTests.cs" t="Include" />
+        <e p="TransmissionDownloaderTests.cs" t="Include" />
         <e p="valid.torrent" t="Include" />
       </e>
     </e>

@@ -91,7 +91,8 @@ namespace ResourceMonitor.Services.Implementation
                 .ToArray();
 
             //进一步根据条件过滤
-            filtered = FilterResources(filtered, rule.chooseNewerIfDuplicate, rule.limitFileSize, true);
+            filtered = FilterResources(filtered, rule.chooseNewerIfDuplicate, rule.limitFileSize, 
+                _configuration["LogDetails"] == "true");
             //获取前 n 个结果
             filtered = filtered.Take(rule.maxCount).ToArray();
 
