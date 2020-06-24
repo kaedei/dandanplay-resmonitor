@@ -77,8 +77,15 @@ namespace ResourceMonitor
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILogger<Startup> logger)
         {
+            
+            logger.LogInformation("初始化配置");
+            foreach (var kv in Configuration.AsEnumerable())
+            {
+                logger.LogDebug($"\t{kv.Key}={kv.Value}");
+            }
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

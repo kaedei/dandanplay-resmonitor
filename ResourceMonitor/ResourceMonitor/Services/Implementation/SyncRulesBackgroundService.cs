@@ -24,7 +24,8 @@ namespace ResourceMonitor.Services.Implementation
         private readonly IConfiguration _configuration;
         private readonly ILogger<SyncRulesBackgroundService> _logger;
         private LoginResponse _lastLoginResponse; //上次登录成功的请求，包含 jwt token 和 token 的过期时间
-
+        private readonly int _syncPeriod;
+        
         public SyncRulesBackgroundService(IDandanplayApi dandanplayApi, 
             IRulesContainer rulesContainer,
             IConfiguration configuration,
@@ -34,6 +35,7 @@ namespace ResourceMonitor.Services.Implementation
             _rulesContainer = rulesContainer;
             _configuration = configuration;
             _logger = logger;
+            _syncPeriod = int.Parse(configuration["SyncPeriod"]);
         }
 
         protected override async Task ExecuteAsync(CancellationToken stoppingToken)
@@ -45,9 +47,9 @@ namespace ResourceMonitor.Services.Implementation
                 _rulesContainer.IsUpdating = true;
                 bool success = await DoWork();
                 _rulesContainer.IsUpdating = false;
-                //每十分钟运行一次
-                _logger.LogInformation($"[规则同步] 在后台运行完成，等待 10 分钟后重新执行。此次运行结果为：{success}");
-                await Task.Delay(TimeSpan.FromMinutes(10), stoppingToken);
+                //每 syncPeriod 分钟运行一次
+                _logger.LogInformation($"[规则同步] 在后台运行完成，等待 {_syncPeriod} 分钟后重新执行。此次运行结果为：{success}");
+                await Task.Delay(TimeSpan.FromMinutes(_syncPeriod), stoppingToken);
             }
 
             _logger.LogInformation("因触发取消，[规则同步] 终止运行.");

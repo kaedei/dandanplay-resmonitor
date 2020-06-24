@@ -25,6 +25,7 @@ namespace ResourceMonitor.Services.Implementation
         private readonly ITorrentService _torrentService;
         private readonly IConfiguration _configuration;
         private readonly ILogger<CheckNewResourcesBackgroundService> _logger;
+        private readonly int _checkPeriod;
 
         public CheckNewResourcesBackgroundService(IRulesContainer rulesContainer,
             IResApi resApi, IDownloader downloader, ITorrentService torrentService,
@@ -37,6 +38,7 @@ namespace ResourceMonitor.Services.Implementation
             _torrentService = torrentService;
             _configuration = configuration;
             _logger = logger;
+            _checkPeriod = int.Parse(configuration["CheckPeriod"]);
         }
 
 
@@ -52,7 +54,7 @@ namespace ResourceMonitor.Services.Implementation
                 while (_rulesContainer.IsUpdating)
                 {
                     _logger.LogInformation("自动下载规则正在同步中，等待同步完毕...");
-                    await Task.Delay(TimeSpan.FromSeconds(15), stoppingToken);
+                    await Task.Delay(TimeSpan.FromSeconds(10), stoppingToken);
                 }
 
                 //按顺序解析每个规则
@@ -62,9 +64,9 @@ namespace ResourceMonitor.Services.Implementation
                     await DownloadRule(rule);
                 }
 
-                //默认每 15 分钟检查一次
-                _logger.LogInformation("全部规则解析完毕，等待 15 分钟后再次执行");
-                await Task.Delay(TimeSpan.FromMinutes(15), stoppingToken);
+                //每 _checkPeriod 分钟检查一次
+                _logger.LogInformation($"全部规则解析完毕，等待 {_checkPeriod} 分钟后再次执行");
+                await Task.Delay(TimeSpan.FromMinutes(_checkPeriod), stoppingToken);
             }
 
             _logger.LogInformation("[检查新资源] 结束运行");
