@@ -40,7 +40,7 @@ namespace ResourceMonitor.Models.DandanplayApi
         public string typeName { get; set; }
         public bool chooseNewerIfDuplicate { get; set; }
         public int limitFileSize { get; set; }
-        public int version { get; set; }
+        public long version { get; set; }
 
         public override string ToString()
         {

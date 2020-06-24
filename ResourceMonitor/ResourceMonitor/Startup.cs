@@ -31,6 +31,15 @@ namespace ResourceMonitor
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+            if (Configuration["Downloader"] == "aria2")
+            {
+                services.AddSingleton<IDownloader, Aria2Downloader>();
+            }
+            else if (Configuration["Downloader"] == "transmission")
+            {
+            }
+            
             services.AddHostedService<SyncRulesBackgroundService>();
             services.AddHostedService<CheckNewResourcesBackgroundService>();
 
@@ -61,15 +70,6 @@ namespace ResourceMonitor
 
             services.AddSingleton<IRulesContainer, RulesContainer>();
             services.AddTransient<ITorrentService, TorrentService>();
-
-            if (Configuration["Downloader"] == "aria2")
-            {
-                services.AddHttpClient<IDownloader, Aria2Downloader>();
-                services.AddSingleton<IDownloader, Aria2Downloader>();
-            }
-            else if (Configuration["Downloader"] == "transmission")
-            {
-            }
 
             services.AddControllers().AddNewtonsoftJson();
         }

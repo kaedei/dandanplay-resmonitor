@@ -16,12 +16,12 @@ namespace ResourceMonitor.Services.Implementation
         private readonly ILogger<Aria2Downloader> _logger;
         private readonly AriaManager _manager;
 
-        public Aria2Downloader(IConfiguration configuration, HttpClient client, ILogger<Aria2Downloader> logger)
+        public Aria2Downloader(IConfiguration configuration, IHttpClientFactory httpClientFactory, ILogger<Aria2Downloader> logger)
         {
             _logger = logger;
             _manager = new AriaManager(configuration["Aria2:Url"],
                 configuration["Aria2:Token"],
-                client);
+                httpClientFactory.CreateClient());
         }
         
         public async Task<bool> TryConnect()

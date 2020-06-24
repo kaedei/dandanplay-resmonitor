@@ -19,6 +19,7 @@
         <e p="log" t="Include">
           <e p="20200621.txt" t="Include" />
           <e p="20200622.txt" t="Include" />
+          <e p="20200624.txt" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="DandanplayApi" t="Include">
