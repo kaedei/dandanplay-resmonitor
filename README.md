@@ -1,5 +1,9 @@
 # 弹弹play资源监视器 dandanplay-resmonitor
 
+[![Build status](https://dev.azure.com/kaedei/dandanplay-resmonitor/_apis/build/status/dandanplay-resmonitor-ASP.NET%20Core-CI)](https://dev.azure.com/kaedei/dandanplay-resmonitor/_build/latest?definitionId=11)
+[![DockerHub](https://images.microbadger.com/badges/version/kaedei/dandanplay-resmonitor.svg)](https://hub.docker.com/repository/docker/kaedei/dandanplay-resmonitor)
+[![Github Release](https://vsrm.dev.azure.com/kaedei/_apis/public/Release/badge/9739e25e-bed4-42b9-9872-fa328f18783b/2/3)](https://github.com/kaedei/dandanplay-resmonitor/releases)
+
 ## 一、介绍
 
 ### 一句话简介
@@ -14,7 +18,7 @@
 
 此工具使用 `ASP.NET Core` 技术编写，编程语言使用了 `C#`。
 
-选择 `ASP.NET Core` 的原因主要是支持直接打包成exe双击运行在本机系统中，也可以通过 `dotnet` 命令行直接启动dll，还支持打包进docker镜像运行。支持的操作系统包括：Windows 10, Windows Server Core（以及 Windows Container）, Linux, macOS。
+选择 `ASP.NET Core` 的原因主要是支持直接打包成exe双击运行在本机系统中，也可以通过 `dotnet` 命令行直接启动dll，还支持打包进docker镜像运行。支持的操作系统包括：Windows 10, Windows NanoServer, Linux, macOS。
 
 ### 开发工具
 
