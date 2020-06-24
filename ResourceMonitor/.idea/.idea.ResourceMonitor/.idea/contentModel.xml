@@ -10,12 +10,14 @@
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="packages" t="ExcludeRecursive" />
       <e p="ResourceMonitor" t="IncludeRecursive">
+        <e p=".dockerignore" t="Include" />
         <e p="appsettings.Development.json" t="Include" />
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
           <e p="WeatherForecastController.cs" t="Include" />
         </e>
+        <e p="Dockerfile" t="Include" />
         <e p="log" t="Include">
           <e p="20200621.txt" t="Include" />
           <e p="20200622.txt" t="Include" />
