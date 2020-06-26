@@ -1,10 +1,67 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>弹弹play资源监视器</title>
+    <script src="scripts/vue.min.js"></script>
+    <script src="scripts/jquery-3.5.1.min.js"></script>
 </head>
 <body>
-
+<div id="app">
+    <h3>弹弹play资源监视器</h3>
+    <p>程序版本: {{ version }}</p>
+    <p>当前下载器: {{ downloader }}</p>
+    <p>规则列表:</p>
+    <table border="1">
+        <thead>
+        <tr>
+            <th>描述</th>
+            <th>关键词</th>
+            <th>字幕组</th>
+            <th>类型</th>
+            <th>创建时间</th>
+            <th>限定此时间之后</th>
+            <th>限定下载数量</th>
+            <th>去重</th>
+            <th>限定文件体积（MB）</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr v-for="rule in rules" :key="rule.id">
+            <td>{{ rule.description }}</td>
+            <td>{{ rule.keyword }}</td>
+            <td>{{ rule.subgroupName }} ({{ rule.subgroupId}})</td>
+            <td>{{ rule.typeName }} ({{ rule.typeId }})</td>
+            <td>{{ new Date(rule.createdTime).toLocaleString() }}</td>
+            <td>{{ new Date(rule.startTime).toLocaleString() }}</td>
+            <td>{{ rule.maxCount }}</td>
+            <td>{{ rule.chooseNewerIfDuplicate }}</td>
+            <td>{{ rule.limitFileSize }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            version: '1.0.0.0',
+            downloader: '',
+            rules: [],
+        },
+        mounted: function () {
+            $.ajax({
+                url: "/server/status",
+                method: "GET",
+                success: function (data) {
+                    console.log(data);
+                    vm.version = data.version;
+                    vm.downloader = data.downloader;
+                    vm.rules = data.rules;
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>

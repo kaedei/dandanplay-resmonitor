@@ -15,13 +15,15 @@
         <e p="appsettings.json" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controllers" t="Include">
-          <e p="WeatherForecastController.cs" t="Include" />
+          <e p="ServerController.cs" t="Include" />
         </e>
         <e p="Dockerfile" t="Include" />
         <e p="log" t="Include">
           <e p="20200621.txt" t="Include" />
           <e p="20200622.txt" t="Include" />
           <e p="20200624.txt" t="Include" />
+          <e p="20200625.txt" t="Include" />
+          <e p="20200626.txt" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="DandanplayApi" t="Include">
@@ -44,6 +46,9 @@
             <e p="TypeList.cs" t="Include" />
           </e>
           <e p="WeatherForecast.cs" t="Include" />
+          <e p="Web" t="Include">
+            <e p="ServerStatusViewModel.cs" t="Include" />
+          </e>
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
@@ -91,6 +96,10 @@
         <e p="Startup.cs" t="Include" />
         <e p="wwwroot" t="Include">
           <e p="index.html" t="Include" />
+          <e p="scripts" t="Include">
+            <e p="jquery-3.5.1.min.js" t="Include" />
+            <e p="vue.min.js" t="Include" />
+          </e>
         </e>
       </e>
       <e p="ResourceMonitor.sln" t="IncludeFlat" />
