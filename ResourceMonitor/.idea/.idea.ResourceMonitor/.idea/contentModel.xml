@@ -24,6 +24,7 @@
           <e p="20200624.txt" t="Include" />
           <e p="20200625.txt" t="Include" />
           <e p="20200626.txt" t="Include" />
+          <e p="20200627.txt" t="Include" />
         </e>
         <e p="Models" t="Include">
           <e p="DandanplayApi" t="Include">
@@ -33,6 +34,7 @@
             <e p="LoginRequest.cs" t="Include" />
             <e p="LoginResponse.cs" t="Include" />
             <e p="ResponseBase.cs" t="Include" />
+            <e p="UserPrivileges.cs" t="Include" />
           </e>
           <e p="Downloader" t="Include">
             <e p="DownloaderTask.cs" t="Include" />

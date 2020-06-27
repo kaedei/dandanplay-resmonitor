@@ -114,6 +114,8 @@ namespace ResourceMonitor.Services.Implementation
                 }
 
             }
+            
+            _logger.LogInformation($"当前用户使用 ResMonitor 的时限为: 北京时间 {_lastLoginResponse.privileges?.resmonitor:yyyy-MM-dd HH:mm:ss}");
 
             //尝试同步下载规则
             //获取服务器上当前用户最新版本的规则

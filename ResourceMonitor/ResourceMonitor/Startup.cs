@@ -41,9 +41,6 @@ namespace ResourceMonitor
                     services.AddSingleton<IDownloader, TransmissionDownloader>();
                     break;
             }
-            
-            services.AddHostedService<SyncRulesBackgroundService>();
-            services.AddHostedService<CheckNewResourcesBackgroundService>();
 
             //User-Agent: dandanplay/resmonitor 1.2.3.4
             var userAgent = string.Format(Configuration["Api:UserAgent"],
@@ -73,6 +70,9 @@ namespace ResourceMonitor
             services.AddSingleton<IRulesContainer, RulesContainer>();
             services.AddTransient<ITorrentService, TorrentService>();
 
+            services.AddHostedService<SyncRulesBackgroundService>();
+            services.AddHostedService<CheckNewResourcesBackgroundService>();
+            
             services.AddControllers().AddNewtonsoftJson();
         }
 

@@ -31,5 +31,7 @@ namespace ResourceMonitor.Models.DandanplayApi
         public string userType { get; set; }
         public string screenName { get; set; }
         public string appScope { get; set; }
+        
+        public UserPrivileges privileges { get; set; }
     }
 }

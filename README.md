@@ -53,7 +53,7 @@
 
 2. 然后在[Github发布页面](https://github.com/kaedei/dandanplay-resmonitor/releases)下载编译好的最新版本，将所有文件解压到本地的某个文件夹中。比如说 `C:\dandanplay-resmonitor\`。
 
-3. 进入此文件夹，使用编辑器软件打开 `appsettings.json` 文件，修改软件配置。这里将会有一篇详细的说明文档：[TODO]()。建议修改完成后备份此配置文件，免得将来升级时被不小心覆盖。
+3. 进入此文件夹，使用编辑器软件打开 `appsettings.json` 文件，修改软件配置。这里将会有一篇详细的说明文档：[本机运行](https://github.com/kaedei/dandanplay-resmonitor/wiki/%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE#%E6%9C%AC%E6%9C%BA%E8%BF%90%E8%A1%8C)。建议修改完成后备份此配置文件，免得将来升级时被不小心覆盖。
 
 4. 使用命令行（cmd Terminal等）进入此文件夹，然后执行 `dotnet ResourceMonitor.dll` 命令，即可启动。启动后将会持续运行，直到你关闭窗口或是按 Ctrl+C 结束进程。
 
@@ -63,7 +63,7 @@
 
 1. 运行命令 `docker run -it kaedei/dandanplay-resmonitor` 即可启动此工具
 
-2. 添加 `-e` 参数可以（通过改变环境变量的方式）自定义程序运行参数。这一步是必需的，详情请参考文档 [TODO]()
+2. 添加 `-e` 参数可以（通过改变环境变量的方式）自定义程序运行参数。这一步是必需的，详情请参考文档 [docker部署](https://github.com/kaedei/dandanplay-resmonitor/wiki/%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE#docker)
 
 3. 添加 `-d` 参数可以让容器在后台持续运行
 
