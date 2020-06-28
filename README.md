@@ -47,15 +47,29 @@
 
 4. 新建一个“自动下载”规则，填写对应的监视参数。新建完毕后此规则会被自动同步到云端。
 
-### 在本机运行（使用 dotnet 命令）
+### 在本机运行
 
-1. 目前还没有提供特定操作系统的本机代码版本，所以如要运行此工具，必须要先安装[.NET Core 3.1 运行时或SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)。
+1. 在[Github发布页面](https://github.com/kaedei/dandanplay-resmonitor/releases)下载编译好的最新版本，将所有文件解压到本地的某个文件夹中。目前我们已编译好面向多个操作系统的版本，您可以选择：
 
-2. 然后在[Github发布页面](https://github.com/kaedei/dandanplay-resmonitor/releases)下载编译好的最新版本，将所有文件解压到本地的某个文件夹中。比如说 `C:\dandanplay-resmonitor\`。
+  - `xxxxxxxx_dotnet.zip` 这是通用的版本，可以运行在大部分环境中，但是需要您先安装[.NET Core 3.1 运行时或SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+  
+  - `xxxxxxxx_win-x64.zip` 这是面向64位Windows编译的版本
+  
+  - `xxxxxxxx_linux-x64.zip` 这是面向64位Linux系统编译的版本
+  
+  - `xxxxxxxx_osx-x64.zip` 这是面向macOS 10.12或以上系统编译的版本
+  
+2. 进入解压后的文件夹，使用文本编辑器软件打开 `appsettings.json` 文件，修改软件配置。这里将会有一篇详细的说明文档：[本机运行](https://github.com/kaedei/dandanplay-resmonitor/wiki/%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE#%E6%9C%AC%E6%9C%BA%E8%BF%90%E8%A1%8C)。建议修改完成后备份此配置文件，免得将来升级时被不小心覆盖。
 
-3. 进入此文件夹，使用编辑器软件打开 `appsettings.json` 文件，修改软件配置。这里将会有一篇详细的说明文档：[本机运行](https://github.com/kaedei/dandanplay-resmonitor/wiki/%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE#%E6%9C%AC%E6%9C%BA%E8%BF%90%E8%A1%8C)。建议修改完成后备份此配置文件，免得将来升级时被不小心覆盖。
+3. 之后即可运行此程序了：
 
-4. 使用命令行（cmd Terminal等）进入此文件夹，然后执行 `dotnet ResourceMonitor.dll` 命令，即可启动。启动后将会持续运行，直到你关闭窗口或是按 Ctrl+C 结束进程。
+  - 对于通用版（dotnet.zip），使用命令行（cmd、Terminal等）进入此文件夹，然后执行 `dotnet ResourceMonitor.dll` 命令，即可启动。
+  
+  - 对于Windows版（win-x64.zip），直接双击启动 ResourceMonitor.exe 文件
+  
+  - 对于Linux版（linux-x64.zip）和macOS版（osx-x64.zip），直接双击启动 ResourceMonitor 文件。
+  
+程序启动后将会持续运行，直到你关闭窗口或是按 Ctrl+C 结束进程。
 
 ### docker镜像部署
 
@@ -78,6 +92,8 @@
 1. 通过 [GitHub的打包下载](https://github.com/kaedei/dandanplay-resmonitor/archive/master.zip) 或通过 `git clone` 下载最新版的代码到本机目录
 
 2. 安装 `.NET Core SDK 3.1.100` 或更高的版本。[官方下载链接](https://dotnet.microsoft.com/download/dotnet-core/3.1)
+
+3. 使用 Visual Studio 2019、Rider、Visual Studio Code 等开发工具打开代码中的 `/ResourceMonitor/ResourceMonitor.sln` 即可打开解决方案。
 
 ### 编译代码
 
