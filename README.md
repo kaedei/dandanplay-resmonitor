@@ -5,7 +5,7 @@
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/kaedei/dandanplay-resmonitor)
 
 [![Build status](https://dev.azure.com/kaedei/dandanplay-resmonitor/_apis/build/status/dandanplay-resmonitor-ASP.NET%20Core-CI)](https://dev.azure.com/kaedei/dandanplay-resmonitor/_build/latest?definitionId=11)
-[![DockerHub](https://images.microbadger.com/badges/version/kaedei/dandanplay-resmonitor.svg)](https://hub.docker.com/repository/docker/kaedei/dandanplay-resmonitor)
+[![DockerHub](https://images.microbadger.com/badges/version/kaedei/dandanplay-resmonitor.svg)](https://hub.docker.com/r/kaedei/dandanplay-resmonitor/tags)
 [![Github Release](https://vsrm.dev.azure.com/kaedei/_apis/public/Release/badge/9739e25e-bed4-42b9-9872-fa328f18783b/2/3)](https://github.com/kaedei/dandanplay-resmonitor/releases)
 
 ## 一、介绍
@@ -24,16 +24,14 @@
 
 ### 开发工具
 
-此工具使用 `ASP.NET Core` 技术编写，编程语言使用了 `C#`。
-本项目使用 macOS 10.15 下的 `Jetbrains Rider` IDE 进行开发。SDK版本目前为 .NET Core SDK 3.1.100。
+此项目使用 `ASP.NET Core` 技术编写，编程语言使用了 `C#`，在 macOS 10.15 下的 `Jetbrains Rider` IDE 进行开发。SDK版本目前为 `.NET Core SDK 3.1.100`。
 
 ### 付费
 
-是的，为了补贴各种服务器费用和日常开销，本工具虽是开源产品，但需要赞助作者后才能使用。
+为了补贴各种服务器费用和日常开销，本工具虽是开源产品，但并不是免费使用的。试用到期后，您需要赞助作者才可以持续使用。新用户将会在您第一次使用弹弹play登录账号并同步“自动下载规则”后向您赠送7天的免费试用时间。
 
-本工具内部连接了弹弹play服务器端API，试用期结束后，您需要赞助作者才可以持续使用。赞助方式将通过 [爱发电项目页](https://afdian.net/@kaedei) 进行。
+> **访问 [爱发电](https://afdian.net/@kaedei) 赞助此项目**
 
-对于此工具的新用户，将会在您第一次使用弹弹play登录后向您赠送7天的免费试用时间。
 
 ## 二、怎样使用
 
@@ -73,7 +71,7 @@
 
 ### docker镜像部署
 
-[![DockerHub](https://images.microbadger.com/badges/version/kaedei/dandanplay-resmonitor.svg)](https://hub.docker.com/repository/docker/kaedei/dandanplay-resmonitor)
+[![DockerHub](https://images.microbadger.com/badges/version/kaedei/dandanplay-resmonitor.svg)](https://hub.docker.com/r/kaedei/dandanplay-resmonitor/tags)
 
 1. 运行命令 `docker run -it kaedei/dandanplay-resmonitor` 即可启动此工具
 
@@ -93,7 +91,7 @@
 
 2. 安装 `.NET Core SDK 3.1.100` 或更高的版本。[官方下载链接](https://dotnet.microsoft.com/download/dotnet-core/3.1)
 
-3. 使用 Visual Studio 2019、Rider、Visual Studio Code 等开发工具打开代码中的 `/ResourceMonitor/ResourceMonitor.sln` 即可打开解决方案。
+3. 使用 Visual Studio 2019、Rider 等开发工具打开 `/ResourceMonitor/ResourceMonitor.sln` 文件，即可打开解决方案。
 
 ### 编译代码
 
