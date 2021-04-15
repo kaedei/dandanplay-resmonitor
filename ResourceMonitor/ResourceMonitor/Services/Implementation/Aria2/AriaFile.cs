@@ -21,7 +21,8 @@ namespace AriaNet.Attributes
         [JsonProperty("selected")]
         public string Selected { get; set; }
 
-        [JsonProperty("uris")]
-        public List<string> Uris { get; set; }
+        //Not Implement this now. Ref: https://aria2.github.io/manual/en/html/aria2c.html#aria2.getUris
+        //[JsonProperty("uris")]
+        //public List<string> Uris { get; set; }
     }
 }
