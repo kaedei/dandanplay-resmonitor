@@ -1,8 +1,8 @@
 using System;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
-using OctoTorrent;
-using OctoTorrent.Common;
+using MonoTorrent;
 using ResourceMonitor.Services.Declaration;
 
 namespace ResourceMonitor.Services.Implementation
@@ -30,7 +30,17 @@ namespace ResourceMonitor.Services.Implementation
 
         public string GetHash(string magnet)
         {
-            return InfoHash.FromMagnetLink(magnet).ToHex().ToLowerInvariant();
+            var match = Regex.Match(magnet, @"\w{40}", RegexOptions.IgnoreCase);
+            if (match.Success)
+            {
+                return InfoHash.FromHex(match.Value).ToHex().ToLowerInvariant();
+            }
+            match = Regex.Match(magnet, @"\w{32}", RegexOptions.IgnoreCase);
+            if (match.Success)
+            {
+                return InfoHash.FromBase32(match.Value).ToHex().ToLowerInvariant();
+            }
+            throw new ArgumentException(magnet);
         }
 
         public async Task<byte[]> DownloadTorrent(string magnet)

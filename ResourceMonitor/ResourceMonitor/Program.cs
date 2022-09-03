@@ -23,7 +23,7 @@ namespace ResourceMonitor
                 .MinimumLevel.Override("Microsoft.AspNetCore", LogEventLevel.Warning)
                 .Enrich.FromLogContext()
                 .WriteTo.Console()
-                .WriteTo.RollingFile(@"log/{Date}.txt")
+                .WriteTo.File(@"log/log-.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
 
             try

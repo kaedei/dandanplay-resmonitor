@@ -1,19 +1,19 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>netcoreapp3.1</TargetFramework>
+        <TargetFramework>net6.0</TargetFramework>
         <Authors>kaedei</Authors>
         <Copyright>Copyright kaedei 2020-2021</Copyright>
         <PackageProjectUrl>https://github.com/kaedei/dandanplay-resmonitor</PackageProjectUrl>
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.5" />
-      <PackageReference Include="OctoTorrent" Version="0.1.7" />
-      <PackageReference Include="Refit" Version="5.1.67" />
-      <PackageReference Include="Refit.HttpClientFactory" Version="5.1.67" />
-      <PackageReference Include="Serilog.AspNetCore" Version="3.2.0" />
-      <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
+      <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="6.0.8" />
+      <PackageReference Include="MonoTorrent" Version="2.0.6" />
+      <PackageReference Include="Refit" Version="6.3.2" />
+      <PackageReference Include="Refit.HttpClientFactory" Version="6.3.2" />
+      <PackageReference Include="Serilog.AspNetCore" Version="6.0.1" />
+      <PackageReference Include="Serilog.Sinks.File" Version="5.0.0" />
       <PackageReference Include="Transmission.API.RPC" Version="2.1.2" />
     </ItemGroup>
 
@@ -32,6 +32,10 @@
         <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
         <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       </Content>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="log\" />
     </ItemGroup>
 
 
